@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Feeling Wiped Out After Lunch</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>👎</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -40,6 +41,11 @@
       opacity: 1;
       transform: none;
     }
+    body.modal-open {
+      position: fixed;
+      width: 100%;
+    }
+
   </style>
   <!-- Meta Pixel Code -->
 <script>
@@ -166,9 +172,9 @@
       <p class="text-sm text-gray-600 mb-4">This product has not been evaluated by the FDA. It is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary. This product is designed to support a healthy lifestyle. Consult a physician before starting any diet or supplement.</p>
     </div>
     <div class="flex flex-wrap justify-center gap-4 mb-8 fade-in">
-      <a href="#" class="text-sm text-[#a31622] hover:underline" onclick="openModal('privacy')">Privacy Policy</a>
-      <a href="#" class="text-sm text-[#a31622] hover:underline" onclick="openModal('terms')">Terms and Conditions</a>
-      <a href="#" class="text-sm text-[#a31622] hover:underline" onclick="openModal('wireless')">Wireless Policy</a>
+      <a href="#" class="text-sm text-[#a31622] hover:underline" onclick="showModalText(`We do not collect any personal payment data or process transactions on this website. Your use of this page is entirely anonymous unless you voluntarily enter your email or information in future steps. We may use basic analytics (e.g., page views, click behavior) to improve the user experience. We do not share or sell your data to third parties.`)">Privacy Policy</a>
+      <a href="#" class="text-sm text-[#a31622] hover:underline" onclick="showModalText(`This page is intended for informational and educational purposes only. By accessing this site, you acknowledge that no purchase, medical advice, or contractual relationship is established. Some links on this page may redirect to third-party platforms or affiliate partners. If you choose to proceed, any transactions made are with those third-party services, not through this site. We encourage you to consult your physician before making any health or lifestyle changes.`)">Terms and Conditions</a>
+      <a href="#" class="text-sm text-[#a31622] hover:underline" onclick="showModalText(`We do not collect phone numbers or send SMS through this site. In the event you voluntarily opt-in to receive SMS communications in the future, you may opt out at any time by replying “STOP.” Standard messaging rates may apply. We do not share your number with third parties.`)">Wireless Policy</a>      
     </div>
     <div class="text-center text-sm text-gray-500 fade-in">
       <p>2025 © Health Focus Team. All rights reserved.</p>
@@ -191,19 +197,30 @@
     fadeElements.forEach(element => fadeObserver.observe(element));
   });
 
-  function openModal(modalType) {
-    document.getElementById(modalType + 'Modal').style.display = 'block';
-  }
+  let scrollPos = 0;
 
-  function closeModal(modalType) {
-    document.getElementById(modalType + 'Modal').style.display = 'none';
-  }
+function openModal(modalType) {
+  scrollPos = window.scrollY;
+  document.body.classList.add('modal-open');
+  document.body.style.top = `-${scrollPos}px`;
+  document.getElementById(modalType + 'Modal').style.display = 'block';
+}
 
-  window.onclick = function(event) {
-    if (event.target.className === 'modal') {
-      event.target.style.display = 'none';
-    }
+function closeModal(modalType) {
+  document.getElementById(modalType + 'Modal').style.display = 'none';
+  document.body.classList.remove('modal-open');
+  document.body.style.top = '';
+  window.scrollTo(0, scrollPos);
+}
+
+window.onclick = function(event) {
+  if (event.target.classList.contains('modal')) {
+    event.target.style.display = 'none';
+    document.body.classList.remove('modal-open');
+    document.body.style.top = '';
+    window.scrollTo(0, scrollPos);
   }
+}
 
   const redirectionURL = "https://www.sau8grg.com/2RMM5N9/7PG21N5/?sub2={clickid}";
   document.getElementById("hero-btn").addEventListener("click", () => {
@@ -220,5 +237,31 @@
   });
 </script>
 
+<script>
+  function showModalText(text) {
+    document.getElementById("modal-text").textContent = text;
+    document.getElementById("genericModal").style.display = "block";
+  }
+
+  function closeGenericModal() {
+    document.getElementById("genericModal").style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById("genericModal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+
+<div id="genericModal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeGenericModal()" style="float:right;cursor:pointer;font-size:24px;">&times;</span>
+    <h3 class="text-xl font-bold mb-4">Legal Informations</h3>
+    <p id="modal-text">Contenu à personnaliser ici selon le lien cliqué.</p>
+  </div>
+</div>
 </body>
 </html>
