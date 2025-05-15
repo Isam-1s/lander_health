@@ -1,11 +1,225 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Health Focus</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health Focus Landing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Bienvenue sur Health Focus</h1>
-  <p>Landing page déployée avec Cloudflare Pages 🚀</p>
+
+<!-- === CONTENU DE TON SITE ICI === -->
+
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<!-- Hero Section -->
+<section class="w-full py-16 bg-white">
+  <div class="max-w-[1100px] mx-auto text-center">
+    <h1 class="text-4xl md:text-5xl font-bold text-[#a31622] mb-6">Feeling Wiped Out After Lunch?</h1>
+    <p class="text-xl mb-8">You're not alone. That post-meal slump might be your blood sugar talking.</p>
+    <button class="bg-[#f9b233] hover:bg-[#e6a229] text-white font-bold py-3 px-8 rounded-full uppercase tracking-wider transition duration-300">
+      Explore the Natural Way
+    </button>
+  </div>
+</section>
+
+<!-- Testimonial Section -->
+<section style="background-color: #f9fafb; position: relative; left: 50%; margin-left: -50vw; width: 100vw; padding: 64px 0;">
+  <div class="max-w-[1100px] mx-auto flex flex-col md:flex-row items-center justify-center gap-8 px-6">
+    <div class="w-16 h-16 rounded-full overflow-hidden border border-gray-200 flex-shrink-0">
+  <img src="https://i.postimg.cc/yx5ZXSzN/Face.jpg" alt="Marie" class="w-full h-full object-cover">
+  </div>
+    <div>
+      <div class="flex mb-2">
+        <span class="text-[#ffc107] text-2xl">★★★★★</span>
+      </div>
+      <blockquote class="text-xl italic mb-2">"After lunch, I could barely keep my eyes open. It felt like I was sedated."</blockquote>
+      <p class="font-semibold">– Marie, 45</p>
+    </div>
+  </div>
+</section>
+
+<!-- Symptoms Section -->
+<section class="w-full py-16 bg-white">
+  <div class="max-w-[1100px] mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-12">Common Symptoms</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-6 rounded-lg bg-gray-50">
+        <h3 class="text-xl font-bold mb-2 text-[#a31622]">Fatigue After Eating</h3>
+        <p>That heavy, sedated feeling that makes you want to nap at your desk.</p>
+      </div>
+      <div class="p-6 rounded-lg bg-gray-50">
+        <h3 class="text-xl font-bold mb-2 text-[#a31622]">Stubborn Belly Weight</h3>
+        <p>No matter how much you exercise, that extra weight won't budge.</p>
+      </div>
+      <div class="p-6 rounded-lg bg-gray-50">
+        <h3 class="text-xl font-bold mb-2 text-[#a31622]">Sugar Cravings</h3>
+        <p>Intense cravings strike even when you thought you were full.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Split Section -->
+<section style="background-color: #7b1018; position: relative; left: 50%; right: 50%; margin-left: -50vw; width: 100vw; padding: 64px 0;">
+  <div class="max-w-[1100px] mx-auto text-white px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">Two Paths to Better Energy</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-2xl font-bold mb-4">The Synthetic Path</h3>
+        <ul class="space-y-4">
+          <li>❌ Doctor's lecture</li>
+          <li>❌ Metformin script</li>
+          <li>❌ <span class="text-[#f9b233] font-bold">Side effects</span> from <span class="text-[#f9b233] font-bold">medications</span></li>
+        </ul>
+      </div>
+      <div style="background-color: #8f151e;" class="p-6 rounded-lg">
+        <h3 class="text-2xl font-bold mb-4">The Natural Alternative</h3>
+        <ul class="space-y-4">
+          <li>✅ Science-backed ingredients</li>
+          <li>✅ Supports your <span class="text-[#f9b233] font-bold">natural rhythm</span></li>
+          <li>✅ <span class="text-[#f9b233] font-bold">No crash</span> or side effects</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Emotional Reframe -->
+<section class="w-full py-16 bg-white text-center">
+  <div class="max-w-[1100px] mx-auto">
+    <p class="text-xl italic mb-4">"I Just Wanted to Feel Normal Again."</p>
+    <p class="text-lg">If you're tired of being tired, you're exactly who this is for.</p>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section style="background-color: #7b1018; position: relative; left: 50%; right: 50%; margin-left: -50vw; width: 100vw; padding: 64px 0;" class="text-white text-center">
+  <div class="max-w-[1100px] mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-6">Simple. Natural. Designed to Support.</h2>
+    <button class="bg-[#f9b233] hover:bg-[#e6a229] text-white font-bold py-3 px-8 rounded-full uppercase tracking-wider transition duration-300">
+      Explore the Natural Way
+    </button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="background-color: #f3f4f6; position: relative; left: 50%; margin-left: -50vw; width: 100vw; padding: 64px 0;">
+  <div class="max-w-[1100px] mx-auto px-12">
+    <div class="mb-8 fade-in">
+      <p class="text-sm text-gray-600 mb-4">This product has not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease. Results in description and testimonials may not be typical results and individual results may vary. This product is intended to be used in conjunction with a healthy diet and regular exercise. Consult your physician before starting any diet, exercise program, and taking any diet pill to avoid any health issues.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-4 mb-8 fade-in">
+      <a href="#" class="text-sm text-[#a31622] hover:underline" onclick="openModal('privacy')">Privacy Policy</a>
+      <a href="#" class="text-sm text-[#a31622] hover:underline" onclick="openModal('terms')">Terms and Conditions</a>
+      <a href="#" class="text-sm text-[#a31622] hover:underline" onclick="openModal('wireless')">Wireless Policy</a>
+    </div>
+    <div class="text-center text-sm text-gray-500 fade-in">
+      <p>2025 © Health Focus Team. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Modals -->
+<div id="privacyModal" class="modal">
+  <div class="modal-content">
+    <span class="float-right text-2xl cursor-pointer" onclick="closeModal('privacy')">&times;</span>
+    <h3 class="text-xl font-bold mb-4">Privacy Policy</h3>
+    <p>We do not collect any payment information or process transactions through this site. Your interaction with this page is entirely anonymous unless you explicitly choose to enter your email or information in future steps. Any data collected (such as click behavior or basic analytics) is used solely to improve user experience. We do not sell or share your data with third parties.</p>
+  </div>
+</div>
+
+<div id="termsModal" class="modal">
+  <div class="modal-content">
+    <span class="float-right text-2xl cursor-pointer" onclick="closeModal('terms')">&times;</span>
+    <h3 class="text-xl font-bold mb-4">Terms and Conditions</h3>
+ <p>This site is provided for informational and educational purposes only. By navigating this page, you acknowledge that no purchase, order, or transaction is conducted on this page. Any redirection to external websites falls under the responsibility of those external services. Use of this page implies no contractual obligation, nor does it constitute a commercial relationship between the user and the operator of this site.</p>
+ <p>Some links on this page may be affiliate links, meaning the operator of this site may earn a commission if you choose to purchase a product after clicking a link. This does not affect the price you pay or the nature of the recommendation.</p>
+  </div>
+</div>
+
+<div id="wirelessModal" class="modal">
+  <div class="modal-content">
+    <span class="float-right text-2xl cursor-pointer" onclick="closeModal('wireless')">&times;</span>
+    <h3 class="text-xl font-bold mb-4">Wireless Policy</h3>
+    <p>We do not collect phone numbers or send SMS through this site. If in the future you voluntarily opt-in to receive communications via SMS, you may opt out at any time by replying STOP. Standard messaging rates may apply based on your carrier. We do not share phone numbers with third parties.</p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeElements.forEach(element => fadeObserver.observe(element));
+  });
+
+  function openModal(modalType) {
+    document.getElementById(modalType + 'Modal').style.display = 'block';
+  }
+
+  function closeModal(modalType) {
+    document.getElementById(modalType + 'Modal').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    if (event.target.className === 'modal') {
+      event.target.style.display = 'none';
+    }
+  }
+</script>
+<!-- === FIN DU CONTENU === -->
 </body>
 </html>
