@@ -32,15 +32,6 @@
       max-width: 600px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
     body.modal-open {
       position: fixed;
       width: 100%;
@@ -209,7 +200,7 @@
     fadeElements.forEach(element => fadeObserver.observe(element));
   });
 
-  let scrollPos = 0;
+   let scrollPos = 0;
 
 function openModal(modalType) {
   scrollPos = window.scrollY;
@@ -225,15 +216,6 @@ function closeModal(modalType) {
   window.scrollTo(0, scrollPos);
 }
 
-window.onclick = function(event) {
-  if (event.target.classList.contains('modal')) {
-    event.target.style.display = 'none';
-    document.body.classList.remove('modal-open');
-    document.body.style.top = '';
-    window.scrollTo(0, scrollPos);
-  }
-}
-
   const redirectionURL = "https://www.sau8grg.com/2RMM5N9/7PG21N5/?sub2={clickid}";
   document.getElementById("hero-btn").addEventListener("click", () => {
     window.location.href = redirectionURL;
@@ -242,6 +224,7 @@ window.onclick = function(event) {
     window.location.href = redirectionURL;
   });
 </script>
+
 <script>
   document.getElementById("cta-btn").addEventListener("click", function () {
     fbq('track', 'ViewContent');
@@ -262,19 +245,26 @@ window.onclick = function(event) {
   function closeGenericModal() {
   document.getElementById("genericModal").style.display = "none";
   document.body.classList.remove('modal-open');
-  document.body.style.top = '';
   window.scrollTo(0, scrollPos);
+  // Libère le style bloquant
+  document.body.style.position = '';
+  document.body.style.top = '';
 }
 
 
-  window.onclick = function(event) {
-    const modal = document.getElementById("genericModal");
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>
 
+  window.onclick = function(event) {
+  const modal = document.getElementById("genericModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+    document.body.classList.remove('modal-open');
+    window.scrollTo(0, scrollPos);
+    document.body.style.position = '';
+    document.body.style.top = '';
+  }
+}
+
+</script>
 
 <div id="genericModal" class="modal">
   <div class="modal-content">
@@ -283,5 +273,35 @@ window.onclick = function(event) {
     <p id="modal-text">Contenu à personnaliser ici selon le lien cliqué.</p>
   </div>
 </div>
+
+<script>
+  let scrollPos = 0;
+
+  function showModalText(text) {
+    scrollPos = window.scrollY;
+    document.getElementById("modal-text").textContent = text;
+    document.getElementById("genericModal").style.display = "block";
+    document.body.classList.add('modal-open');
+    document.body.style.top = `-${scrollPos}px`;
+    document.body.style.position = 'fixed';
+  }
+
+  function closeGenericModal() {
+    const modal = document.getElementById("genericModal");
+    modal.style.display = "none";
+    document.body.classList.remove('modal-open');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, scrollPos);
+  }
+
+  // Fermer si clic hors contenu
+  window.addEventListener('click', function(event) {
+    const modal = document.getElementById("genericModal");
+    if (event.target === modal) {
+      closeGenericModal();
+    }
+  });
+</script>
 </body>
 </html>
