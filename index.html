@@ -251,13 +251,21 @@ window.onclick = function(event) {
 
 <script>
   function showModalText(text) {
-    document.getElementById("modal-text").textContent = text;
-    document.getElementById("genericModal").style.display = "block";
-  }
+  scrollPos = window.scrollY;
+  document.body.classList.add('modal-open');
+  document.body.style.top = `-${scrollPos}px`;
+  document.getElementById("modal-text").textContent = text;
+  document.getElementById("genericModal").style.display = "block";
+}
+
 
   function closeGenericModal() {
-    document.getElementById("genericModal").style.display = "none";
-  }
+  document.getElementById("genericModal").style.display = "none";
+  document.body.classList.remove('modal-open');
+  document.body.style.top = '';
+  window.scrollTo(0, scrollPos);
+}
+
 
   window.onclick = function(event) {
     const modal = document.getElementById("genericModal");
