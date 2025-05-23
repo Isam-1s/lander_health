@@ -60,7 +60,7 @@
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=618103807953602&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=2470970969922083&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->  
 </head>
@@ -216,19 +216,17 @@ function closeModal(modalType) {
   window.scrollTo(0, scrollPos);
 }
 
-  const redirectionURL = "https://www.sau8grg.com/2RMM5N9/7PG21N5/?sub2={clickid}";
+  const redirectionURL = "https://www.betterhealthlinks.com/click";
+
   document.getElementById("hero-btn").addEventListener("click", () => {
     window.location.href = redirectionURL;
   });
-  document.getElementById("cta-btn").addEventListener("click", () => {
-    window.location.href = redirectionURL;
-  });
-</script>
 
-<script>
   document.getElementById("cta-btn").addEventListener("click", function () {
     fbq('track', 'ViewContent');
-    window.location.href = "https://www.sau8grg.com/2RMM5N9/7PG21N5/?sub2={clickid}";
+    setTimeout(() => {
+      window.location.href = redirectionURL;
+    }, 150);
   });
 </script>
 
