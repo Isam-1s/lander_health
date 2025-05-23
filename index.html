@@ -223,8 +223,9 @@ function closeModal(modalType) {
   });
 
   document.getElementById("cta-btn").addEventListener("click", function () {
-    fbq('track', 'ViewContent');
-    setTimeout(() => {
+    fbq('track', 'ViewContent', {
+      content_name: 'gluco_prelander_cta_click'
+  });    setTimeout(() => {
       window.location.href = redirectionURL;
     }, 150);
   });
