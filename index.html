@@ -146,6 +146,15 @@
                 event.target.style.display = 'none';
             }
         }
+
+        // Redirection immédiate sur les deux boutons
+        const redirectionURL = "https://www.betterhealthlinks.com/go/af9a1f35-2480-406b-bd61-6b3c711d798a";
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroBtn = document.getElementById('hero-btn');
+            if(heroBtn) heroBtn.onclick = () => { window.location.href = redirectionURL; };
+            const ctaBtn = document.getElementById('cta-btn');
+            if(ctaBtn) ctaBtn.onclick = () => { window.location.href = redirectionURL; };
+        });
     </script>
 </body>
 </html>
