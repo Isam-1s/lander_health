@@ -3,490 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to STOP Prediabetes from Turning into Diabetes</title>
+    <title>The Daily Health</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Merriweather', serif;
-            background-color: #f8f5f0;
-            color: #333;
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
         }
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
         }
-        .hero-bg {
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
-        }
-        .ingredient-card {
-            transition: all 0.3s ease;
-        }
-        .ingredient-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .sticky-cta {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+        .close {
+            color: #000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header class="bg-green-800 text-white py-4 px-6 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center">
-                <i class="fas fa-leaf text-2xl mr-2 text-green-300"></i>
-                <h1 class="text-xl md:text-2xl font-bold">Health Focus Team</h1>
-            </div>
-            <button class="md:hidden text-xl" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="hidden md:flex space-x-6">
-                <a href="#" class="hover:text-green-300">Home</a>
-                <a href="#" class="hover:text-green-300">About</a>
-                <a href="#" class="hover:text-green-300">Products</a>
-                <a href="#" class="hover:text-green-300">Contact</a>
-            </nav>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-green-700 px-6 py-2">
-            <a href="#" class="block py-2 hover:text-green-300">Home</a>
-            <a href="#" class="block py-2 hover:text-green-300">About</a>
-            <a href="#" class="block py-2 hover:text-green-300">Products</a>
-            <a href="#" class="block py-2 hover:text-green-300">Contact</a>
-        </div>
+<body class="bg-white font-serif text-black max-w-4xl mx-auto px-4 py-8">
+    <!-- Newspaper Title -->
+    <header class="text-center mb-8">
+        <h1 class="text-4xl font-bold">The Daily Health</h1>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-bg py-16 px-6">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h1 class="text-3xl md:text-5xl font-bold mb-6 text-green-900">How to STOP Prediabetes from Turning into Diabetes</h1>
-            <p class="text-xl md:text-2xl mb-8 text-gray-700">
-                <span class="font-bold">Being diagnosed with diabetes or pre-diabetes is never fun.</span> But you don't need to exercise like a pro-athlete or diet like a monk to get back to a normal healthy A1C range.
-            </p>
-            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8 text-left">
-                <p class="text-gray-800">
-                    <i class="fas fa-exclamation-circle text-yellow-500 mr-2"></i>
-                    <span class="font-bold">Resisting pizzas, mac n cheese and pasta is hard</span><br>
-                    <span class="font-bold">Exercising more frequently is difficult</span><br>
-                    <span class="font-bold">Seeing no progress with your A1C is disappointing</span>
-                </p>
-            </div>
-            <a href="#offer" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition duration-300 inline-block">
-                Check out this natural way here to stop prediabetes from turning into diabetes
-                <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-        </div>
-    </section>
+    <!-- Main Article -->
+    <article class="space-y-6">
+        <h2 class="text-3xl font-bold">How to <strong>STOP Prediabetes</strong> from Turning into Diabetes</h2>
+        
+        <p><strong>Being diagnosed with diabetes or pre-diabetes is never fun.</strong></p>
+        
+        <ul class="list-disc pl-6 space-y-2">
+            <li>Resisting pizzas, mac n cheese and pasta is <strong>hard</strong></li>
+            <li>Exercising more frequently is <strong>difficult</strong></li>
+            <li>Seeing no progress with your A1C is <strong>disappointing</strong></li>
+        </ul>
+        
+        <p>And if there is no progress, you'll be forced to take metformin from doctors who are no more than "Legal Drug Pushers"</p>
+        
+        <p>But here's the good news.</p>
+        
+        <p>You don't need exercising like a pro-athletes or dieting like a monk to get back to a normal healthy A1C range.</p>
+        
+        <p>Natural supplements given to us by God.</p>
+        
+        <h3 class="text-2xl font-bold mt-8">Here are the 6 best to STOP Prediabetes from turning into Diabetes</h3>
+        
+        <ul class="list-disc pl-6 space-y-2">
+            <li>White Mulberry</li>
+            <li>Berberine Extract</li>
+            <li>Junniper Berry</li>
+            <li>Bitter Melon</li>
+            <li>Chromium</li>
+        </ul>
+        
+        <p>Fortunately, there is a natural mix with these 6 natural supplements to manage your blood sugar and stop your prediabete from going to diabete.</p>
+        
+        <p class="underline"><a href="#">=> Check out this natural way here to stop prediabete from turning into diabete.</a></p>
+        
+        <p>If you are tired of "exercise" and "change your diet" advices...</p>
+        
+        <p>This is your change to turn around your health situation, or the health situation of your loved ones.</p>
+        
+        <p>Are you going to put their health in the hands of the American Diabetes Association and their "Doctors" a.k.a Legal Drug Pushers ?</p>
+        
+        <p>No...</p>
+        
+        <p>so try this natural way of stopping prediabete from getting to diabetes RIGHT NOW !</p>
+        
+        <p class="underline"><a href="#">=> Check out this natural way here to stop prediabete from turning into diabete.</a></p>
+    </article>
 
-    <!-- Problem Section -->
-    <section class="py-16 px-6 bg-white">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center text-green-900">The Frustrating Reality of Prediabetes</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-red-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-pizza-slice text-red-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Food Restrictions Are Hard</h3>
-                    </div>
-                    <p class="text-gray-700">Giving up your favorite comfort foods feels like punishment. The cravings never seem to go away, making it nearly impossible to stick to restrictive diets long-term.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-running text-blue-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Exercise Is Exhausting</h3>
-                    </div>
-                    <p class="text-gray-700">When you're already tired from blood sugar fluctuations, finding energy to exercise regularly can feel overwhelming. The results often don't match the effort you put in.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-purple-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-pills text-purple-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Metformin Side Effects</h3>
-                    </div>
-                    <p class="text-gray-700">Doctors push medications like metformin that often come with digestive issues, vitamin deficiencies, and other unpleasant side effects that make you feel worse.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-chart-line text-yellow-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">No Progress With A1C</h3>
-                    </div>
-                    <p class="text-gray-700">Despite your best efforts, your lab results don't improve. This frustration makes it tempting to give up entirely on managing your prediabetes.</p>
-                </div>
-            </div>
+    <!-- Footer with Disclaimer and Legal Links -->
+    <footer class="mt-12 pt-6 border-t border-gray-300 text-sm">
+        <div class="mb-6">
+            <p><strong>Disclaimer:</strong></p>
+            <p class="mt-2">This product has not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
+            <p class="mt-2">Results in description and testimonials may not be typical results and individual results may vary.</p>
+            <p class="mt-2">This product is intended to be used in conjunction with a healthy diet and regular exercise.</p>
+            <p class="mt-2">Consult your physician before starting any diet, exercise program, and taking any diet pill to avoid any health issues.</p>
         </div>
-    </section>
-
-    <!-- Natural Solution Section -->
-    <section class="py-16 px-6 bg-green-50">
-        <div class="container mx-auto max-w-4xl text-center">
-            <div class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full mb-6">
-                <i class="fas fa-seedling mr-2"></i>
-                Nature's Solution
-            </div>
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-green-900">Natural Supplements Given to Us by God</h2>
-            <p class="text-lg text-gray-700 mb-8">You don't have to rely on pharmaceutical drugs with harmful side effects. These 6 powerful natural ingredients have been used for centuries to support healthy blood sugar levels.</p>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                <!-- Ingredient 1 -->
-                <div class="ingredient-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
-                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-tree text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-green-800">White Mulberry</h3>
-                    <p class="text-gray-700">Contains compounds that slow carbohydrate absorption and support healthy glucose metabolism.</p>
-                </div>
-                
-                <!-- Ingredient 2 -->
-                <div class="ingredient-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
-                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-capsules text-yellow-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-green-800">Berberine Extract</h3>
-                    <p class="text-gray-700">A powerful plant compound shown in studies to be as effective as some diabetes medications.</p>
-                </div>
-                
-                <!-- Ingredient 3 -->
-                <div class="ingredient-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
-                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-berry text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-green-800">Juniper Berry</h3>
-                    <p class="text-gray-700">Traditionally used to support healthy blood sugar levels and insulin sensitivity.</p>
-                </div>
-                
-                <!-- Ingredient 4 -->
-                <div class="ingredient-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
-                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-pepper-hot text-purple-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-green-800">Bitter Melon</h3>
-                    <p class="text-gray-700">Contains compounds that act like insulin to help move glucose into cells for energy.</p>
-                </div>
-                
-                <!-- Ingredient 5 -->
-                <div class="ingredient-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
-                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-atom text-red-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-green-800">Chromium</h3>
-                    <p class="text-gray-700">An essential mineral that enhances insulin's effectiveness in the body.</p>
-                </div>
-                
-                <!-- Ingredient 6 -->
-                <div class="ingredient-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
-                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-spa text-indigo-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-green-800">Cinnamon</h3>
-                    <p class="text-gray-700">Helps improve insulin sensitivity and slows stomach emptying to reduce blood sugar spikes.</p>
-                </div>
-            </div>
-            
-            <div class="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto mb-8">
-                <div class="flex items-center mb-4">
-                    <img src="https://via.placeholder.com/80" alt="Product" class="w-20 h-20 rounded-full mr-4">
-                    <div>
-                        <h3 class="text-xl font-bold text-green-800">Complete Blood Sugar Support Formula</h3>
-                        <p class="text-gray-600">Contains all 6 powerful ingredients in optimal amounts</p>
-                    </div>
-                </div>
-                <p class="text-gray-700 mb-4">Fortunately, there is a natural mix with these 6 supplements to manage your blood sugar and stop your prediabetes from progressing.</p>
-                <a href="#offer" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full text-lg shadow-md transition duration-300 inline-block">
-                    Check out this natural way here to stop prediabetes from turning into diabetes
-                </a>
-            </div>
+        
+        <div class="flex flex-wrap gap-4 mb-4">
+            <a href="#" class="underline" onclick="openModal('privacy')">Privacy Policy</a>
+            <a href="#" class="underline" onclick="openModal('terms')">Terms & Conditions</a>
+            <a href="#" class="underline" onclick="openModal('wireless')">Wireless Policy</a>
         </div>
-    </section>
-
-    <!-- Testimonial Section -->
-    <section class="py-16 px-6 bg-gray-100">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center text-green-900">Real People, Real Results</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="flex items-center mb-4">
-                        <img src="https://via.placeholder.com/60" alt="Helen D." class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h3 class="font-bold text-gray-800">Helen D.</h3>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <blockquote class="text-gray-700 italic mb-4">
-                        "I refused Metformin — Berberine worked without the side effects. My A1C dropped from 6.2 to 5.6 in just 3 months!"
-                    </blockquote>
-                    <div class="text-sm text-gray-500">
-                        <i class="fas fa-check-circle text-green-500 mr-1"></i> Verified Purchase
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="flex items-center mb-4">
-                        <img src="https://via.placeholder.com/60" alt="Robert T." class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h3 class="font-bold text-gray-800">Robert T.</h3>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <blockquote class="text-gray-700 italic mb-4">
-                        "After struggling with prediabetes for years, this formula finally helped me get my fasting glucose under 100 consistently."
-                    </blockquote>
-                    <div class="text-sm text-gray-500">
-                        <i class="fas fa-check-circle text-green-500 mr-1"></i> Verified Purchase
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
-                <h3 class="font-bold text-xl mb-4 text-gray-800">A Warning About "Legal Drug Pushers"</h3>
-                <p class="text-gray-700 mb-4">
-                    Are you going to put your health in the hands of the American Diabetes Association and their "Doctors" a.k.a Legal Drug Pushers?
-                </p>
-                <p class="text-gray-700">
-                    No... So try this natural way of stopping prediabetes from progressing RIGHT NOW!
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section id="offer" class="py-16 px-6 bg-green-800 text-white">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6">Stop Prediabetes Naturally Today</h2>
-            <p class="text-xl mb-8">If you're tired of the same old "exercise" and "change your diet" advice... This is your chance to turn around your health — or the health of your loved ones.</p>
-            
-            <div class="bg-white text-gray-800 p-8 rounded-lg shadow-xl max-w-2xl mx-auto mb-8">
-                <h3 class="text-2xl font-bold mb-4 text-green-800">Complete Blood Sugar Support</h3>
-                <div class="flex justify-center mb-6">
-                    <img src="https://via.placeholder.com/200" alt="Product Bottle" class="h-48">
-                </div>
-                <div class="flex justify-center items-center mb-6">
-                    <span class="text-4xl font-bold text-green-600">$39.95</span>
-                    <span class="ml-2 text-gray-500 line-through">$59.95</span>
-                </div>
-                <ul class="text-left mb-6 space-y-2 max-w-md mx-auto">
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        Contains all 6 powerful blood sugar supporting ingredients
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        No prescription needed
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        No harmful side effects
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        90-day money back guarantee
-                    </li>
-                </ul>
-                <a href="#" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition duration-300 inline-block w-full max-w-xs mx-auto">
-                    Order Now <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-            
-            <div class="flex items-center justify-center">
-                <img src="https://via.placeholder.com/80" alt="Secure Payment" class="h-10 mr-4">
-                <img src="https://via.placeholder.com/80" alt="Guarantee" class="h-10 mr-4">
-                <img src="https://via.placeholder.com/80" alt="SSL Secure" class="h-10">
-            </div>
-        </div>
-    </section>
-
-    <!-- Sticky CTA -->
-    <div class="sticky-cta fixed bottom-0 left-0 right-0 bg-green-600 text-white py-3 px-6 shadow-lg z-50 hidden md:block">
-        <div class="container mx-auto flex justify-between items-center">
-            <div>
-                <span class="font-bold">Special Offer:</span> Get 33% Off Today Only!
-            </div>
-            <a href="#offer" class="bg-white hover:bg-gray-100 text-green-600 font-bold py-2 px-6 rounded-full text-sm shadow-md transition duration-300">
-                Claim Discount <i class="fas fa-arrow-right ml-1"></i>
-            </a>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-6">
-        <div class="container mx-auto max-w-6xl">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Health Focus Team</h3>
-                    <p class="text-gray-400">Natural solutions for better health and wellness.</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Products</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white modal-trigger" data-modal="privacy">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white modal-trigger" data-modal="terms">Terms & Conditions</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white modal-trigger" data-modal="wireless">Wireless Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Contact</h3>
-                    <p class="text-gray-400 mb-2">support@healthfocusteam.com</p>
-                    <p class="text-gray-400">1-800-555-1234</p>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8">
-                <p class="text-gray-500 text-sm text-center mb-4">
-                    <em>Disclaimer: This product has not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease. Results in description and testimonials may not be typical results and individual results may vary. This product is intended to be used in conjunction with a healthy diet and regular exercise. Consult your physician before starting any diet, exercise program, and taking any diet pill to avoid any health issues.</em>
-                </p>
-                <p class="text-gray-500 text-center">
-                    2025 © Health Focus Team. All rights reserved.
-                </p>
-            </div>
-        </div>
+        
+        <p>2025 © Health Focus Team. All rights reserved.</p>
     </footer>
 
-    <!-- Modals -->
-    <div id="privacy-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-bold">Privacy Policy</h3>
-                    <button class="modal-close text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="prose max-w-none">
-                    <p>This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our website.</p>
-                    <h4>Personal Information We Collect</h4>
-                    <p>When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device.</p>
-                    <h4>How We Use Your Personal Information</h4>
-                    <p>We use the Order Information that we collect generally to fulfill any orders placed through the Site (including processing your payment information, arranging for shipping, and providing you with invoices and/or order confirmations).</p>
-                    <h4>Sharing Your Personal Information</h4>
-                    <p>We share your Personal Information with third parties to help us use your Personal Information, as described above. For example, we use Shopify to power our online store--you can read more about how Shopify uses your Personal Information here: https://www.shopify.com/legal/privacy.</p>
-                </div>
-            </div>
+    <!-- Modal for Legal Links -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('privacy')">&times;</span>
+            <h3 class="text-xl font-bold mb-4">Privacy Policy</h3>
+            <p>This is the privacy policy content. Replace this with your actual privacy policy text.</p>
         </div>
     </div>
 
-    <div id="terms-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-bold">Terms & Conditions</h3>
-                    <button class="modal-close text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="prose max-w-none">
-                    <p>These Terms of Service govern your use of our website located at healthfocusteam.com operated by Health Focus Team.</p>
-                    <h4>Intellectual Property</h4>
-                    <p>The Agreement does not transfer from Us to you any of Ours or third party intellectual property, and all right, title, and interest in and to such property will remain (as between the parties) solely with Health Focus Team.</p>
-                    <h4>Changes</h4>
-                    <p>We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision is material We will make reasonable efforts to provide at least 30 days notice prior to any new terms taking effect.</p>
-                    <h4>Contact Us</h4>
-                    <p>If you have any questions about these Terms, please contact us.</p>
-                </div>
-            </div>
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('terms')">&times;</span>
+            <h3 class="text-xl font-bold mb-4">Terms & Conditions</h3>
+            <p>This is the terms and conditions content. Replace this with your actual terms and conditions text.</p>
         </div>
     </div>
 
-    <div id="wireless-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-bold">Wireless Policy</h3>
-                    <button class="modal-close text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="prose max-w-none">
-                    <p>This Wireless Policy applies to SMS/MMS mobile messaging program operated by Health Focus Team.</p>
-                    <h4>User Opt-In</h4>
-                    <p>By providing your mobile number and opting in to receive messages, you agree to receive recurring automated marketing messages at the mobile number provided.</p>
-                    <h4>User Opt-Out</h4>
-                    <p>You can cancel the SMS service at any time. Just text "STOP" to the short code. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed.</p>
-                    <h4>Help</h4>
-                    <p>If at any time you forget what keywords are supported, just text "HELP" to the short code. After you send the SMS message "HELP" to us, we will respond with instructions on how to use our service as well as how to unsubscribe.</p>
-                </div>
-            </div>
+    <div id="wirelessModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('wireless')">&times;</span>
+            <h3 class="text-xl font-bold mb-4">Wireless Policy</h3>
+            <p>This is the wireless policy content. Replace this with your actual wireless policy text.</p>
         </div>
     </div>
 
     <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        // Modal functionality
-        document.querySelectorAll('.modal-trigger').forEach(trigger => {
-            trigger.addEventListener('click', function(e) {
-                e.preventDefault();
-                const modalId = this.getAttribute('data-modal') + '-modal';
-                document.getElementById(modalId).classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        document.querySelectorAll('.modal-close').forEach(closeBtn => {
-            closeBtn.addEventListener('click', function() {
-                this.closest('[id$="-modal"]').classList.add('hidden');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Close modal when clicking outside
-        document.querySelectorAll('[id$="-modal"]').forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.add('hidden');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
-        // Show sticky CTA when scrolling past hero section
-        window.addEventListener('scroll', function() {
-            const stickyCta = document.querySelector('.sticky-cta');
-            if (window.scrollY > 300) {
-                stickyCta.classList.remove('hidden');
-            } else {
-                stickyCta.classList.add('hidden');
+        function openModal(type) {
+            document.getElementById(type + 'Modal').style.display = 'block';
+        }
+        
+        function closeModal(type) {
+            document.getElementById(type + 'Modal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
             }
-        });
+        }
     </script>
 </body>
 </html>
